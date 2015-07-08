@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'papth',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    firebase: 'https://paperthoughts.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
