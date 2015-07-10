@@ -14,13 +14,23 @@ export default Ember.Route.extend({
       ref.createUser({
         email: model.get("email"),
         password: model.get("password")
-      }, (error, userData) => {
+      }, (error) => {
         if (error) {
           console.log(error.message);
         } else {
-          console.log("User was successfully created yo.")
+          console.log("User was successfully created yo.");
         }
-      })
+      });
+    },
+
+    signIn() {
+      var model = this.modelFor(this.routeName);
+      this.get("session").authenticate("authenticator:firebase", {
+        "email": model.get("email"),
+        "password": model.get("password")
+      }).catch((reason) => {
+        console.log(reason);
+      });
     }
   }
 });

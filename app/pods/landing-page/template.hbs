@@ -4,7 +4,17 @@
       <h2>Sign up</h2>
       {{#em-form model=model action="saveUser"}}
         {{em-input property="email" placeholder="email"}}
-        {{em-input property="password" placeholder="password" type="password"}}
+        {{em-input property="password" type="password" placeholder="password (minimum 6 characters)"}}
+      {{/em-form}}
+    </div>
+    <div class="col-md-4">
+      <h2>Sign in</h2>
+      {{#em-form action="signIn" submit_button=false model=model}}
+        {{em-input property="email" placeholder="email"}}
+        {{em-input property="password" type="password" placeholder="password (minimum 6 characters)"}}
+        <div class="form-actions">
+          <input type="submit" class="btn btn-default" value="Sign in"/>
+        </div>
       {{/em-form}}
     </div>
   </div>
