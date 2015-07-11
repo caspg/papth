@@ -1,1 +1,19 @@
 @import "bootstrap";
+
+.forms-container {
+  margin-top: 100px;
+
+  .toggle-buttons {
+    text-align: center;
+    padding: 15px;
+  }
+
+  span {
+    cursor: pointer;
+    padding: 10px;
+
+    &.active {
+      font-size: 25px;
+    }
+  }
+}

@@ -32,5 +32,10 @@ export default Ember.Route.extend({
         console.log(reason);
       });
     }
+  },
+
+  setupController(controller, model) {
+    this._super(controller, model);
+    controller.setProperties({"isSignIn": true, "isSignUp": false})
   }
 });
