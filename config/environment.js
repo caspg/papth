@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'papth',
     podModulePrefix: 'papth/pods',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    // contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
     firebase: 'https://paperthoughts.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
@@ -20,6 +20,12 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
+  };
+
+  ENV["simple-auth"] = {
+    routeAfterAuthentication: "dashboard",
+    routeIfAlreadyAuthenticated: "dashboard",
+    authenticationRoute: "landing-page"
   };
 
   if (environment === 'development') {
