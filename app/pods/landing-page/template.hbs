@@ -1,25 +1,28 @@
+<h1>Landing Page</h1>
 <div class="container">
   <div class="col-md-4 col-md-offset-2">
-    <div class="forms-container">
-      <div class="toggle-buttons">
-        <span class="{{if isSignIn 'active'}}" {{action "toggleTitle" on="click"}}>Sign in</span>
-        <span class="{{if isSignUp 'active'}}" {{action "toggleTitle" on="click"}}>Sign up</span>
+    {{#unless session.isAuthenticated}}
+      <div class="forms-container">
+        <div class="toggle-buttons">
+          <span class="{{if isSignIn 'active'}}" {{action "toggleTitle" on="click"}}>Sign in</span>
+          <span class="{{if isSignUp 'active'}}" {{action "toggleTitle" on="click"}}>Sign up</span>
+        </div>
+        <div class="sign-in-box {{unless isSignIn 'hidden'}}">
+          {{#em-form action="signIn" submit_button=false model=model}}
+            {{em-input property="email" placeholder="email"}}
+            {{em-input property="password" type="password" placeholder="password (minimum 6 characters)"}}
+            <div class="form-actions">
+              <input type="submit" class="btn btn-default" value="Sign in"/>
+            </div>
+          {{/em-form}}
+        </div>
+        <div class="sign-up-box {{unless isSignUp 'hidden'}}">
+          {{#em-form model=model action="saveUser"}}
+            {{em-input property="email" placeholder="email"}}
+            {{em-input property="password" type="password" placeholder="password (minimum 6 characters)"}}
+          {{/em-form}}
+        </div>
       </div>
-      <div class="sign-in-box {{unless isSignIn 'hidden'}}">
-        {{#em-form action="signIn" submit_button=false model=model}}
-          {{em-input property="email" placeholder="email"}}
-          {{em-input property="password" type="password" placeholder="password (minimum 6 characters)"}}
-          <div class="form-actions">
-            <input type="submit" class="btn btn-default" value="Sign in"/>
-          </div>
-        {{/em-form}}
-      </div>
-      <div class="sign-up-box {{unless isSignUp 'hidden'}}">
-        {{#em-form model=model action="saveUser"}}
-          {{em-input property="email" placeholder="email"}}
-          {{em-input property="password" type="password" placeholder="password (minimum 6 characters)"}}
-        {{/em-form}}
-      </div>
-    </div>
+    {{/unless}}
   </div>
 </div>
