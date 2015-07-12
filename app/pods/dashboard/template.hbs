@@ -6,7 +6,9 @@
       <h1>Dashboard</h1>
     </div>
     <div class="col-md-6">
+    {{#unless isNewForm}}
       {{link-to "Add new Thought" "dashboard.new" class="btn btn-default pull-right"}}
+    {{/unless}}
     </div>
   </div>
 </div>

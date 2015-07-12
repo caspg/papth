@@ -1,8 +1,9 @@
 import Ember from 'ember';
 import Firebase from 'firebase';
 import config from 'papth/config/environment';
+import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   model() {
     return this.store.createRecord("user");
   },
