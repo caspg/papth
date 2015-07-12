@@ -22,5 +22,10 @@ export default Ember.Route.extend({
   },
   deactivate: function() {
     this.controllerFor("dashboard").set("isNewForm", false);
+
+    var model = this.modelFor(this.routeName);
+    if (model.get("isNew")) {
+      model.destroyRecord();
+    }
   }
 });
